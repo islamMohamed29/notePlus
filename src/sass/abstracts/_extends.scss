@@ -1,0 +1,54 @@
+@use "./variables" as vars;
+@use "sass:map";
+%position_fixed_full_screen {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+%display_flex_align_and_content_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%display_flex_align_center_content_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%main_style_bg {
+  background-color: map.get($map: vars.$secondary-colors, $key: white);
+  border-radius: vars.$main-border-radius;
+  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.05);
+  transition: 0.35s !important;
+  margin-top: 25px;
+  padding: vars.$main-padding;
+}
+
+%button_status_todos {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  width: fit-content;
+  padding: 2px 10px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+%clear_todos {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-weight: 500;
+  border: 2px solid #000;
+  transition: 0.3s ease-in-out;
+}

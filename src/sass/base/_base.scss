@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as vars;
+@use "sass:map";
+
+body {
+  background-color: map.get($map: vars.$colors, $key: color2);
+  color: map.get($map: vars.$colors, $key: color1);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}

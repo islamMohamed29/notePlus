@@ -1,0 +1,38 @@
+.content-page {
+  overflow: hidden;
+  margin-left: 290px;
+  padding: 30px 15px 0px 15px;
+  min-height: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+  width: 100%;
+}
+.modal-body {
+  width: 100%;
+  max-height: 300px;
+  border: 1px solid #ccc;
+  overflow-y: scroll;
+}
+.modal-body p,
+.modal-body div {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.modal-changeAvatar .modal-dialog .modal-body {
+  overflow-y: unset;
+  max-height: 900px;
+}
+.modal-changeAvatar .modal-dialog .modal-body .box-avatar {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+}
+.modal-changeAvatar .modal-dialog .modal-body .box-avatar .isAvatar img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,247 @@
+@use "../abstracts/extends";
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+.notes {
+  @extend %main_style_bg;
+}
+
+.box-note {
+  border-radius: 10px;
+  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  min-height: 220px;
+  height: 250px;
+  &.very-low {
+    @include note-styles(map.get($map: vars.$colors, $key: color8));
+  }
+  &.low {
+    @include note-styles(map.get($map: vars.$colors, $key: color9));
+  }
+  &.medium {
+    @include note-styles(map.get($map: vars.$colors, $key: color10));
+  }
+  &.high {
+    @include note-styles(map.get($map: vars.$colors, $key: color11));
+  }
+  &.very-high {
+    @include note-styles(map.get($map: vars.$colors, $key: color12));
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 0%;
+    border: 2px solid;
+    border-color: map.get($map: vars.$colors, $key: color7);
+    background-color: map.get($map: vars.$colors, $key: color7);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover::after {
+    transform: translateY(-8px);
+  }
+
+  .head-note {
+    margin-bottom: 15px;
+    @extend %display_flex_align_center_content_between;
+    .icon-type-box {
+      border: 1px solid map.get($map: vars.$colors, $key: color7);
+      border-radius: vars.$main-border-radius;
+      width: 45px;
+      height: 45px;
+      @extend %display_flex_align_and_content_center;
+      color: map.get($map: vars.$colors, $key: color7);
+      font-size: 24px;
+    }
+
+    .icon-type-box,
+    .setting {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .footer-note {
+    @extend %display_flex_align_center_content_between;
+    i {
+      color: map.get($map: vars.$colors, $key: color7);
+    }
+    .allowed-to,
+    .date-note,
+    .allowed-to i,
+    .date-note i {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .note-content {
+    .content {
+      margin-bottom: 30px;
+      width: 100%;
+      height: 60px;
+      line-height: 20px;
+      word-break: break-all;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -ms-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-line-clamp: 3;
+      -moz-line-clamp: 3;
+      -ms-line-clamp: 3;
+      line-clamp: 3;
+      overflow: hidden;
+      h1,
+      h2,
+      h3 {
+        width: 100%;
+        height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      ol,
+      ul,
+      p {
+        width: 100%;
+        height: 60px;
+        line-height: 20px;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-line-clamp: 3;
+        -moz-line-clamp: 3;
+        -ms-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+      }
+    }
+    .note-type {
+      h3 {
+        color: map.get($map: vars.$colors, $key: color6);
+        font-size: 23px;
+        margin-bottom: 12px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+    .note-type h3,
+    .content {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &:hover {
+    background-color: map.get($map: vars.$colors, $key: color7);
+    .head-note {
+      .icon-type-box {
+        border-color: map.get($map: vars.$secondary-colors, $key: white);
+      }
+      .icon-type-box,
+      .setting {
+        color: map.get($map: vars.$secondary-colors, $key: white);
+        cursor: pointer;
+      }
+    }
+    .footer-note {
+      .allowed-to,
+      .date-note {
+        color: map.get($map: vars.$secondary-colors, $key: white);
+      }
+    }
+    .note-content {
+      .note-type h3,
+      .content {
+        color: map.get($map: vars.$secondary-colors, $key: white);
+      }
+    }
+  }
+}
+
+.write-note-collapse {
+  .card {
+    border: none;
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.05);
+    background-color: map.get($map: vars.$secondary-colors, $key: white);
+    margin-top: 25px;
+    position: relative;
+    .ql-toolbar {
+      border-bottom: 1px solid #ccc !important;
+    }
+    .quill .ql-snow {
+      border: none;
+    }
+  }
+  .over-lay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    border-radius: vars.$main-border-radius;
+    @extend %display_flex_align_and_content_center;
+    .spinner-border {
+      color: map.get($map: vars.$secondary-colors, $key: white);
+    }
+  }
+}
+
+.header-note-section {
+  margin: 10px 0 30px;
+  h2 {
+    color: map.get($map: vars.$colors, $key: color6);
+    font-size: 26px;
+    font-weight: 400;
+  }
+}
+
+.aria-new-note {
+  background-color: map.get($map: vars.$secondary-colors, $key: white);
+  padding: 25px;
+  border-radius: 10px;
+  margin: 25px 12px;
+  form {
+    label {
+      color: map.get($map: vars.$colors, $key: color5);
+    }
+    input,
+    textarea,
+    select {
+      background: map.get($map: vars.$colors, $key: color2);
+      border: 1px solid #dcdddf;
+      font-size: 14px;
+      &:focus {
+        border: 1px solid map.get($map: vars.$colors, $key: color5);
+        background-color: map.get($map: vars.$secondary-colors, $key: white);
+        box-shadow: none;
+      }
+    }
+  }
+  .icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    .icon {
+      @extend %display_flex_align_and_content_center;
+      border: 1px solid map.get($map: vars.$colors, $key: color5);
+      border-radius: vars.$main-border-radius;
+      height: 35px;
+      width: 40px;
+      font-size: 18px;
+      color: map.get($map: vars.$colors, $key: color5);
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      &.active,
+      &:hover {
+        background-color: map.get($map: vars.$colors, $key: color5);
+        color: map.get($map: vars.$secondary-colors, $key: white);
+      }
+    }
+  }
+}

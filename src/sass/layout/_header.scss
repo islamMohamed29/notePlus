@@ -1,0 +1,73 @@
+@use "../abstracts/variables" as vars;
+@use "sass:map";
+@use "../abstracts/extends";
+.header {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  .write-note,
+  .write-todo {
+    background-color: map.get($map: vars.$secondary-colors, $key: white);
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.05);
+    padding: vars.$main-padding;
+    border-radius: vars.$main-border-radius;
+    width: 100%;
+  }
+  .write-todo a.add-new {
+    background-color: map.get($map: vars.$secondary-colors, $key: white);
+    color: map.get($map: vars.$colors, $key: color5);
+    width: fit-content;
+    border-radius: vars.$main-border-radius;
+    padding: 5px 10px;
+    font-weight: 500;
+    border: 4px solid map.get($map: vars.$colors, $key: color2);
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: map.get($map: vars.$secondary-colors, $key: white);
+      background-color: map.get($map: vars.$colors, $key: color5);
+    }
+  }
+  .top-buttons {
+    background-color: map.get($map: vars.$secondary-colors, $key: white);
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.05);
+    width: 160px;
+    padding: vars.$second-padding;
+    border-radius: vars.$main-border-radius;
+    @extend %display_flex_align_and_content_center;
+    ul.navbar-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      li {
+        a.nav-link {
+          background-color: #f3f6fd;
+          padding: 10px;
+          border-radius: vars.$main-border-radius;
+          width: 40px;
+          height: 37px;
+          @extend %display_flex_align_and_content_center;
+          &:after {
+            display: none;
+          }
+          &[aria-expanded="true"] {
+            color: map.get($map: vars.$secondary-colors, $key: black);
+          }
+        }
+      }
+    }
+  }
+  .write-note a {
+    color: map.get($map: vars.$colors, $key: color1);
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: map.get($map: vars.$secondary-colors, $key: black);
+    }
+    i {
+      font-size: 13px;
+    }
+  }
+  .write-note [aria-expanded="true"] {
+    color: map.get($map: vars.$secondary-colors, $key: black);
+  }
+}
