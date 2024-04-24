@@ -7,12 +7,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 const firebaseConfig = {
-  apiKey: "AIzaSyBZSgRmS7vZDmp0pCGy-V_qb34imoKuJJo",
-  authDomain: "note-plus-redux-app.firebaseapp.com",
-  projectId: "note-plus-redux-app",
-  storageBucket: "note-plus-redux-app.appspot.com",
-  messagingSenderId: "411813999021",
-  appId: "1:411813999021:web:446fa01f4c20489732b124",
+  apiKey: "AIzaSyDokHPFIlYJ1isJxsQO-J2_51xgiwihe0o",
+  authDomain: "notes-todos-application.firebaseapp.com",
+  projectId: "notes-todos-application",
+  storageBucket: "notes-todos-application.appspot.com",
+  messagingSenderId: "607679287785",
+  appId: "1:607679287785:web:606783d3c0cc1fa7463b78"
 };
 
 const app = initializeApp(firebaseConfig);
